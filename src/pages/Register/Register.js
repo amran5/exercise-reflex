@@ -1,28 +1,108 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
-const Register = () => {
+const SignUp = () => {
+    // const { signInUsingGoogle, handleEmailLogin } = useAuth();
+    // const combineContext = useAuth();
+    // const { allContext } = combineContext;
+    const { signInUsingGoogle, handleEmailLogin, setIsLoading } = useAuth();
+
+    const history = useHistory();
+    const location = useLocation();
+    const redriect_uri = location.state?.from || "/home";
+
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then((result) => {
+                history.push(redriect_uri);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = (data) => {
+        const { Name, Email, Password } = data;
+        handleEmailLogin(Name, Email, Password);
+    };
     return (
-        <div style={{ height: "calc(83vh)" }}>
-            <div className="login-form">
-                <div>
-                    <h2 className="my-5">Register: Create Account</h2>
-                    <form onSubmit="">
-                        <input type="email" name="" id="" placeholder="Your Email" />
-                        <br />
-                        <input className="my-2" type="password" name="" id="" placeholder="Your Password" />
-                        <br />
-                        <input type="password" name="" id="" placeholder="Re-enter Password" />
-                        <br />
-                        <input className="my-2" type="submit" value="Submit" />
+        <div style={{ height: "calc(79vh)" }}>
+            <div>
+                <div className="signup-form" sx={{ width: "50%", margin: "auto" }}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            required
+                            type="text"
+                            placeholder="Name"
+                            {...register("Name", { required: true, maxLength: 80 })}
+                        />
+                        {errors.Name && (
+                            <span className="field-error">This field is required</span>
+                        )}
+                        <input
+                            required
+                            type="email"
+                            placeholder="Email"
+                            {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+                        />
+                        {errors.Email && (
+                            <span className="field-error">This field is required</span>
+                        )}
+                        <input
+                            required
+                            type="password"
+                            placeholder="Password"
+                            {...register("Password", {
+                                required: true,
+                                pattern:
+                                    /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8})/i,
+                            })}
+                        />
+                        {errors.Password && (
+                            <span className="field-error">
+                                Password should have at least 8 chracters, 2 uppercase, 3
+                                lowercase, 1 special character, 2 numbers.
+                            </span>
+                        )}
+                        <input
+                            required
+                            type="password"
+                            placeholder="Confrim-Password"
+                            {...register("ConfrimPassword", {
+                                required: true,
+                                pattern:
+                                    /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8})/i,
+                            })}
+                        />
+                        {errors.ConfrimPassword && (
+                            <span className="field-error">
+                                Password should have at least 8 chracters, 2 uppercase, 3
+                                lowercase, 1 special character, 2 numbers.
+                            </span>
+                        )}
+
+                        <input className="submit-btn" type="submit" value="Sign In" />
                     </form>
-                    <p>Already have an account? <Link to="/login" className="text-decoration-none">Login</Link></p>
-                    <div>----------or-------------</div>
-                    <button className="btn-regular bg-black my-5 rounded-3 text-white">Google Sign In</button>
+                    <Link to="/signIn">Already have an account?</Link>
+                </div>
+                <div sx={{ mt: 4, borderTop: "1px solid #ddd", pt: 2 }}>
+                    <p>Or sign in using</p>
+                    <button
+                        className="bg-black text-white rounded-3"
+                        onClick={handleGoogleLogin}
+                    >
+                        Sign In using Google
+                    </button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Register;
+export default SignUp;
