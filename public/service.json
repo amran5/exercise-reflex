@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Interval training",
+        "id": 1,
+        "img": "https://i.ibb.co/FsgRKnd/interval-training.jpg",
+        "description": "Interval training is simply alternating short bursts (about 30 seconds) of intense activity with longer intervals (about 1 to 2 minutes).",
+        "price": "Three Month $300"
+    },
+    {
+        "name": "Full Body Workout",
+        "id": 2,
+        "img": "https://i.ibb.co/tHt5f9g/full-body.jpg",
+        "description": "Things work out best for those who make the best of how things work out",
+        "price": "Per Month $200"
+    },
+    {
+        "name": "Yoga",
+        "id": 3,
+        "img": "https://i.ibb.co/g35J6J7/Yoga.jpg",
+        "description": "The term yoga in the Western world often denotes a modern form of hatha yoga and a posture-based physical fitness",
+        "price": "Per Month $100"
+    },
+    {
+        "name": "Walking Running",
+        "id": 4,
+        "img": "https://i.ibb.co/6yLhgcP/walking-running.jpg",
+        "description": "Walking and running are both excellent forms of cardiovascular exercise. Neither is necessarily “better” than the other.",
+        "price": "Three Month $200"
+    },
+    {
+        "name": "Yoga Hero Pose",
+        "id": 5,
+        "img": "https://i.ibb.co/S06CPd2/yoga-hero-pose.jpg",
+        "description": "Hero Pose is a kneeling  in modern yoga as exercise. Medieval hatha yoga texts describe a cross-legged meditation under the same name",
+        "price": "Two Month $200"
+    },
+    {
+        "name": "Squats",
+        "id": 6,
+        "img": "https://i.ibb.co/HdtGG1N/Squats.jpg",
+        "description": "Squats target the quads,calves and core so this exercise can play a role to make your butt bigger when performed consistently over time.",
+        "price": "Two Month $300"
+    },
+    {
+        "name": "Head To Knee Forward bend",
+        "id": 7,
+        "img": "https://i.ibb.co/QvRFNb4/Head-to-Knee.jpg",
+        "description": "Your right shin and left thigh should form a 90 degree angle square your hips forward gently rotating them with your arms. Now raise your arms over your head lengthen through the spine.",
+        "price": "Two Month $400"
+    },
+    {
+        "name": "Bound Angle Pose",
+        "id": 8,
+        "img": "https://i.ibb.co/LzswQ7B/Bound-Angle-Pose.jpg",
+        "description": " Bound Angle Pose, Butterfly Pose, or Cobbler's Pose, and historically called Bhadrasana, Throne Pose, is a seated yoga and modern yoga as exercise. If the knees rest on the floor.",
+        "price": "per Month $50"
+    }
+]
