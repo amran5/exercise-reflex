@@ -11,6 +11,8 @@ import AuthProvider from './contexts/AuthProvider';
 import Categories from './pages/Categories/Categories';
 import NotFound from './pages/NotFound/NotFound';
 import Trainers from './pages/Trainers/Trainers';
+import Detail from './pages/Detail/Detail';
+import PrivateRoute from './pages/Login/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -25,15 +27,18 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/services">
+            <PrivateRoute path="/services">
               <Services></Services>
-            </Route>
-            <Route path="/category">
+            </PrivateRoute>
+            <PrivateRoute path="/detail/:serviceid">
+              <Detail></Detail>
+            </PrivateRoute>
+            <PrivateRoute path="/category">
               <Categories></Categories>
-            </Route>
-            <Route path="/trainer">
+            </PrivateRoute>
+            <PrivateRoute path="/trainer">
               <Trainers></Trainers>
-            </Route>
+            </PrivateRoute>
             <Route path="/signIn">
               <Login></Login>
             </Route>

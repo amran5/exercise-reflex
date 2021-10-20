@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Service from '../../Services/Service/Service';
 import Banner from '../Banner/Banner';
 import './Home.css';
@@ -27,7 +28,9 @@ const Home = () => {
                     </Row>
                 </Container>
                 <div className="py-5">
-                    <button style={{ backgroundColor: "black", color: "white", borderRadius: "5px" }}>All Services</button>
+                    <Link to="/services">
+                        <button style={{ backgroundColor: "black", color: "white", borderRadius: "5px", padding: "4px 8px" }}>All Services</button>
+                    </Link>
                 </div>
             </div>
         </div>

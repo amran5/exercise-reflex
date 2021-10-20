@@ -11,12 +11,12 @@ const Login = () => {
 
     const history = useHistory();
     const location = useLocation();
-    const redriect_uri = location.state?.from || "/home";
+    const redirect_uri = location.state?.from || "/home";
 
     const handleGoogleLogin = () => {
         signInUsingGoogle()
             .then((result) => {
-                history.push(redriect_uri);
+                history.push(redirect_uri);
             })
             .finally(() => setIsLoading(false));
     };
@@ -34,7 +34,7 @@ const Login = () => {
         <div style={{ height: "calc(79vh)" }}>
             <div className="container">
                 <div>
-                    <div className="signup-form" sx={{ width: "50%", margin: "auto" }}>
+                    <div className="signup-form">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
                                 required
@@ -57,7 +57,7 @@ const Login = () => {
                             />
                             {errors.Password && (
                                 <span className="field-error">
-                                    Password should have at least 8 chracters, 2 uppercase, 3
+                                    Password should have at least 8 characters, 2 uppercase, 3
                                     lowercase, 1 special character, 2 numbers.
                                 </span>
                             )}

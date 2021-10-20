@@ -10,7 +10,7 @@ const Services = () => {
             .then(data => setServices(data))
     }, []);
     return (
-        <div>
+        <div className="mb-2">
             <h1 className="text-center py-5">All Packages</h1>
             <Container>
                 <Row xs={1} md={2} lg={2} className="g-4">
