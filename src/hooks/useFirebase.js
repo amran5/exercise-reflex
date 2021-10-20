@@ -44,15 +44,21 @@ const useFirebase = () => {
             setUser(result.user);
             updateProfile(auth.currentUser, {
                 displayName: name,
-            }).then(() => { });
-        });
+            }).then(() => { })
+        })
+            .catch(error => {
+                console.log(error.message)
+            })
     };
 
     const userLogin = (email, password) => {
         signInWithEmailAndPassword(auth, email, password).then((result) => {
             setUser(result.user);
             console.log(result.user);
-        });
+        })
+            .catch(error => {
+                console.log(error.message)
+            })
     };
 
     //   observe user

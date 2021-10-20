@@ -1,0 +1,8 @@
+.bg img{
+border-bottom-left-radius: 240px;
+border-bottom-right-radius: 240px;
+}
+.bg .body:hover{
+    background-color:#212529;
+    color: white;
+}
